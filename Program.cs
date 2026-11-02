@@ -21,7 +21,15 @@
             Console.WriteLine(szemely.Koszont(szemely.Nev));
             Console.WriteLine($"Életkor: {szemely.Eletkor} év");
             Console.WriteLine($"Ledolgozandó évek nyugdíjig: {szemely.NyugdijigHatralevoEvek} év");
-            Console.WriteLine(szemely.Koszont());
+            Console.WriteLine();
+            Console.WriteLine("A három lehetséges köszöntés:");
+            foreach (string koszontes in szemely.MindenKoszontes())
+            {
+                Console.WriteLine($"- {koszontes}");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine($"Véletlenszerűen kiválasztva: {szemely.Koszont()}");
         }
 
         private static int ReadBirthYear()

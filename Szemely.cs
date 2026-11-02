@@ -49,5 +49,14 @@ namespace SzemelyStatisztika
             int index = Random.Shared.Next(Koszontesek.Length);
             return $"{Koszontesek[index]} {Nev}";
         }
+
+        // A tömbben tárolt mindhárom köszöntést visszaadjuk.
+        public IEnumerable<string> MindenKoszontes()
+        {
+            foreach (string koszontes in Koszontesek)
+            {
+                yield return $"{koszontes} {Nev}";
+            }
+        }
     }
 }
