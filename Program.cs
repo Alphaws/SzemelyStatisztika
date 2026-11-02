@@ -26,7 +26,15 @@
             Console.WriteLine();
             Console.WriteLine(szemely.Koszont(szemely.Nev));
             Console.WriteLine($"Életkor: {szemely.Eletkor} év");
-            Console.WriteLine($"Ledolgozandó évek nyugdíjig: {szemely.NyugdijigHatralevoEvek} év");
+            if (szemely.Eletkor >= 65)
+            {
+                Console.WriteLine($"Nyugdíjas évek: {szemely.NyugdijasEvek} év");
+            }
+            else
+            {
+                Console.WriteLine($"Ledolgozandó évek nyugdíjig: {szemely.NyugdijigHatralevoEvek} év");
+            }
+
             Console.WriteLine();
             Console.WriteLine("A három lehetséges köszöntés:");
             foreach (string koszontes in koszontesek)

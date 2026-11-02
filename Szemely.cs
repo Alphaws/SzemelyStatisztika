@@ -30,6 +30,9 @@ namespace SzemelyStatisztika
         // A nyugdíjkorhatárból levonjuk az életkort.
         public int NyugdijigHatralevoEvek => Nyugdijkorhatar - Eletkor;
 
+        // Az életkorból levonjuk a nyugdíjkorhatárt.
+        public int NyugdijasEvek => Eletkor - Nyugdijkorhatar;
+
         // Köszöntés a megadott névvel.
         public string Koszont(string nev)
         {
