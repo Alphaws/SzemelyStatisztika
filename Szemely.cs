@@ -2,13 +2,6 @@ namespace SzemelyStatisztika
 {
     internal sealed class Szemely
     {
-        private static readonly string[] Koszontesek =
-        {
-            "Legyen szép napod!",
-            "Szeretettel köszöntelek!",
-            "Üdvözöllek!"
-        };
-
         public const int AktualisEv = 2026;
         private const int Nyugdijkorhatar = 65;
 
@@ -43,20 +36,16 @@ namespace SzemelyStatisztika
             return $"Szia, {nev}!";
         }
 
-        // Véletlenszerűen kiválasztunk egy köszöntést a tömbből.
-        public string Koszont()
+        // A kapott köszöntések közül véletlenszerűen kiválasztunk egyet.
+        public string Koszont(params string[] koszontesek)
         {
-            int index = Random.Shared.Next(Koszontesek.Length);
-            return $"{Koszontesek[index]} {Nev}";
-        }
-
-        // A tömbben tárolt mindhárom köszöntést visszaadjuk.
-        public IEnumerable<string> MindenKoszontes()
-        {
-            foreach (string koszontes in Koszontesek)
+            if (koszontesek.Length == 0)
             {
-                yield return $"{koszontes} {Nev}";
+                throw new ArgumentException("Legalább egy köszöntést meg kell adni.", nameof(koszontesek));
             }
+
+            int index = Random.Shared.Next(koszontesek.Length);
+            return $"{koszontesek[index]} {Nev}";
         }
     }
 }

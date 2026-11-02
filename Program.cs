@@ -16,6 +16,12 @@
             int szulEv = ReadBirthYear();
 
             var szemely = new Szemely(nev, szulEv);
+            string[] koszontesek =
+            {
+                "Legyen szép napod!",
+                "Szeretettel köszöntelek!",
+                "Üdvözöllek!"
+            };
 
             Console.WriteLine();
             Console.WriteLine(szemely.Koszont(szemely.Nev));
@@ -23,13 +29,13 @@
             Console.WriteLine($"Ledolgozandó évek nyugdíjig: {szemely.NyugdijigHatralevoEvek} év");
             Console.WriteLine();
             Console.WriteLine("A három lehetséges köszöntés:");
-            foreach (string koszontes in szemely.MindenKoszontes())
+            foreach (string koszontes in koszontesek)
             {
-                Console.WriteLine($"- {koszontes}");
+                Console.WriteLine($"- {koszontes} {szemely.Nev}");
             }
 
             Console.WriteLine();
-            Console.WriteLine($"Véletlenszerűen kiválasztva: {szemely.Koszont()}");
+            Console.WriteLine($"Véletlenszerűen kiválasztva: {szemely.Koszont(koszontesek)}");
         }
 
         private static int ReadBirthYear()
